@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import Logo from './Logo.jsx'
 
 const STAGES = ['Load booked', 'In transit', 'Delivered']
 
@@ -43,7 +44,10 @@ export default function Intro() {
   return (
     <div className={`intro ${leaving ? 'leaving' : ''}`} role="status" aria-label="Loading">
       <div className="intro-inner">
-        <div className="intro-brand">Transportation Management System</div>
+        <div className="intro-brand">
+          <Logo height={76} className="intro-logo" />
+          <span>Transportation Management System</span>
+        </div>
 
         <div className="route">
           <div className="stop origin">

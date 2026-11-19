@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import Intro from './Intro.jsx'
 import ScrollTruck from './ScrollTruck.jsx'
+import Logo from './Logo.jsx'
 import {
   project, stats, modules, integrations, months, stack,
   approach, assumptions, commitment, phases, pricing,
@@ -71,8 +72,8 @@ function Nav() {
     <header className="nav">
       <div className="nav-inner">
         <a href="#overview" className="brand" onClick={() => setOpen(false)}>
-          <img src="/favicon.svg" alt="" width="28" height="28" />
-          <span>TMS Proposal</span>
+          <Logo height={32} />
+          <span className="brand-text">TMS Proposal</span>
         </a>
         <nav className={`nav-links ${open ? 'show' : ''}`}>
           {SECTIONS.map((s) => (
@@ -462,7 +463,10 @@ export default function App() {
         <Commitment />
       </main>
       <footer className="footer">
-        <span>{project.title} · {project.subtitle}</span>
+        <span className="footer-brand">
+          <Logo height={24} />
+          <span>{project.title} · {project.subtitle}</span>
+        </span>
         <span>Timeline is measured from project kickoff.</span>
       </footer>
     </>

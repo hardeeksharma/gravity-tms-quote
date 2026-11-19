@@ -71,7 +71,7 @@ a { color: inherit; }
   max-width: var(--max); margin: 0 auto; padding: 0 24px; height: 64px;
   display: flex; align-items: center; gap: 24px;
 }
-.brand { display: flex; align-items: center; gap: 10px; color: #fff; text-decoration: none; font-family: var(--display); font-weight: 600; font-size: 17px; }
+.brand { display: flex; align-items: center; gap: 12px; color: #fff; text-decoration: none; font-family: var(--display); font-weight: 600; font-size: 17px; }
 .nav-links { display: flex; gap: 4px; margin-left: auto; }
 .nav-links a {
   color: rgba(255,255,255,.7); text-decoration: none; font-size: 14px; font-weight: 500;
@@ -395,7 +395,7 @@ a { color: inherit; }
 }
 .intro.leaving { opacity: 0; transform: scale(1.03); pointer-events: none; }
 .intro-inner { width: min(760px, 100%); display: flex; flex-direction: column; align-items: center; gap: 44px; }
-.intro-brand { font-family: var(--display); font-size: clamp(18px, 3vw, 24px); font-weight: 600; letter-spacing: .02em; color: rgba(255,255,255,.9); animation: introFade .6s ease both; }
+.intro-brand { display: flex; flex-direction: column; align-items: center; gap: 18px; font-family: var(--display); font-size: clamp(16px, 2.6vw, 20px); font-weight: 600; letter-spacing: .02em; color: rgba(255,255,255,.85); text-align: center; animation: introFade .6s ease both; }
 
 .route { width: 100%; display: flex; align-items: center; gap: 18px; animation: introFade .6s .1s ease both; }
 .stop { display: flex; flex-direction: column; align-items: center; gap: 8px; flex: none; width: 64px; }
@@ -479,3 +479,13 @@ a { color: inherit; }
 @media (max-width: 640px) { .scroll-truck { --tw: 38px; height: 30px; } body { padding-bottom: 30px; } }
 @media (prefers-reduced-motion: reduce) { .scroll-truck .st-wheel, .scroll-truck .st-truck { animation: none !important; } }
 @media print { .scroll-truck { display: none !important; } body { padding-bottom: 0; } }
+
+/* ---------- logo ---------- */
+.logo-plate { display: inline-flex; align-items: center; background: #fff; border-radius: 10px; padding: 4px 10px; flex: none; }
+.logo-plate.intro-logo { border-radius: 16px; padding: 10px 22px; box-shadow: 0 0 0 8px rgba(255,255,255,.06), 0 12px 40px rgba(0,0,0,.35); }
+.footer-brand { display: inline-flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+.footer-brand .logo-plate { padding: 3px 8px; border-radius: 8px; }
+@media (max-width: 640px) {
+  .brand-text { display: none; }
+  .logo-plate.intro-logo img { height: 56px !important; }
+}
