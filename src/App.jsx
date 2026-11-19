@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import Intro from './Intro.jsx'
+import ScrollTruck from './ScrollTruck.jsx'
 import {
   project, stats, modules, integrations, months, stack,
   approach, assumptions, commitment, phases, pricing,
@@ -447,6 +448,7 @@ export default function App() {
   return (
     <>
       <Intro />
+      <ScrollTruck />
       <Nav />
       <main>
         <Hero />

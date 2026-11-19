@@ -335,7 +335,6 @@ export const assumptions = [
   { title: 'Integration access on day one', text: 'Highway and QuickBooks API access, credentials and documentation will be provided at the beginning of the project.' },
   { title: 'Business inputs during discovery', text: 'Required sample documents, business rules, invoice formats and approval workflows will be provided during discovery.' },
   { title: 'MVP scope only', text: 'The six-month timeline (four months of development and two months of testing and fixes) assumes delivery of the agreed MVP scope and does not include unapproved additional modules.' },
-  { title: 'Excluded features', text: 'Customer/carrier portals, dedicated mobile applications, advanced GPS tracking, EDI, OCR/AI document extraction and complex historical data migration are excluded unless explicitly included in the approved scope.' },
   { title: 'Formal change requests', text: 'Any major change in business requirements or additional functionality will be evaluated through a formal change request.' },
   { title: 'Go-live depends on UAT', text: 'Production rollout will be subject to successful UAT and resolution of critical defects.' },
 ]

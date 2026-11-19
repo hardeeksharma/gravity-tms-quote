@@ -33,6 +33,7 @@ body {
   line-height: 1.55;
   -webkit-font-smoothing: antialiased;
   overflow-x: clip;
+  padding-bottom: 34px;
 }
 h1, h2, h3, h4 { font-family: var(--display); margin: 0; line-height: 1.15; letter-spacing: -0.01em; }
 p { margin: 0; }
@@ -453,3 +454,28 @@ a { color: inherit; }
 }
 @media (prefers-reduced-motion: reduce) { .intro { display: none; } }
 @media print { .intro { display: none !important; } }
+
+/* ---------- scroll truck ---------- */
+.scroll-truck {
+  --p: 0; --tw: 46px;
+  position: fixed; left: 0; right: 0; bottom: 0; height: 34px; z-index: 60; pointer-events: none;
+  background: rgba(7, 19, 34, .94); backdrop-filter: blur(8px);
+  border-top: 1px solid rgba(255,255,255,.08);
+}
+.st-road, .st-progress { position: absolute; left: 16px; right: 16px; bottom: 7px; height: 3px; border-radius: 2px; }
+.st-road { background: repeating-linear-gradient(90deg, rgba(255,255,255,.22) 0 10px, transparent 10px 18px); }
+.st-progress { right: auto; width: calc((100% - 32px) * var(--p)); background: var(--amber); }
+.st-truck {
+  position: absolute; bottom: 8px; width: var(--tw);
+  left: calc(16px + (100% - 32px - var(--tw)) * var(--p));
+}
+.st-truck svg { width: 100%; display: block; overflow: visible; }
+.st-wheel { transform-box: fill-box; transform-origin: center; }
+.scroll-truck.moving .st-wheel { animation: spin .35s linear infinite; }
+.scroll-truck.moving .st-truck { animation: bounce .3s ease-in-out infinite alternate; }
+.st-flag { position: absolute; right: 12px; bottom: 9px; width: 16px; height: 16px; color: rgba(255,255,255,.45); transition: color .3s, transform .3s; }
+.scroll-truck.done .st-flag { color: #1fc98a; transform: scale(1.25); }
+
+@media (max-width: 640px) { .scroll-truck { --tw: 38px; height: 30px; } body { padding-bottom: 30px; } }
+@media (prefers-reduced-motion: reduce) { .scroll-truck .st-wheel, .scroll-truck .st-truck { animation: none !important; } }
+@media print { .scroll-truck { display: none !important; } body { padding-bottom: 0; } }

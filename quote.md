@@ -296,9 +296,8 @@ Additional modules or major requirement changes outside the approved scope will 
 3. Highway and QuickBooks API access, credentials and documentation will be provided at the beginning of the project.
 4. Required sample documents, business rules, invoice formats and approval workflows will be provided during discovery.
 5. The six-month timeline (four months of development and two months of testing and fixes) assumes delivery of the agreed MVP scope and does not include unapproved additional modules.
-6. Customer/carrier portals, dedicated mobile applications, advanced GPS tracking, EDI, OCR/AI document extraction and complex historical data migration are excluded unless explicitly included in the approved scope.
-7. Any major change in business requirements or additional functionality will be evaluated through a formal change request.
-8. Production rollout will be subject to successful UAT and resolution of critical defects.
+6. Any major change in business requirements or additional functionality will be evaluated through a formal change request.
+7. Production rollout will be subject to successful UAT and resolution of critical defects.
 
 ---
 
