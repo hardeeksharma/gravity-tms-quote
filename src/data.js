@@ -7,14 +7,14 @@ export const project = {
   objective:
     "Design, develop, test and deploy a centralized Transportation Management System to support the client's freight brokerage operations and approximately 100–200 employees.",
   scope:
-    'The system will include Brokerage, Operations, Accounts Receivable, Accounts Payable, Administration and Compliance modules, with integrations for Highway and QuickBooks.',
+    'The system will include Brokerage, Operations, Accounts Receivable, Accounts Payable, Administration and Compliance modules, with integrations for Highway and QuickBooks and a Flutter mobile app that lets carriers share their live location while a load is in transit.',
 }
 
 export const stats = [
   { value: '6', label: 'Months to go-live' },
-  { value: '4 + 2', label: 'Months development + testing' },
   { value: '6', label: 'Business modules' },
   { value: '2', label: 'Integrations' },
+  { value: '1', label: 'Carrier mobile app' },
 ]
 
 export const modules = [
@@ -127,7 +127,7 @@ export const months = [
     title: 'Accounts Receivable & Accounts Payable',
     short: 'Accounting',
     objective: 'Develop the complete financial workflows for customer billing and carrier payments.',
-    deliverable: 'Accounts Receivable and Accounts Payable',
+    deliverable: 'Accounts Receivable, Accounts Payable and carrier app foundation',
     groups: [
       {
         name: 'Accounts Receivable (AR)',
@@ -152,6 +152,17 @@ export const months = [
         ],
       },
       {
+        name: 'Carrier Mobile App (Flutter) – Foundation',
+        mobile: true,
+        items: [
+          'Flutter app setup for Android and iOS.',
+          'Carrier login and secure authentication.',
+          'Assigned loads list and load details.',
+          'Background GPS location service.',
+          'Location tracking API and storage in the TMS.',
+        ],
+      },
+      {
         name: 'DevOps – Monitoring & Security',
         devops: true,
         items: [
@@ -168,10 +179,10 @@ export const months = [
   {
     n: 4,
     phase: 'Development',
-    title: 'Compliance, Integrations & Reporting',
+    title: 'Compliance, Integrations, Reporting & Carrier App',
     short: 'Compliance',
     objective: 'Complete the compliance workflows, connect external systems and deliver reporting.',
-    deliverable: 'Compliance, Highway, QuickBooks and reporting',
+    deliverable: 'Compliance, Highway, QuickBooks, reporting and carrier app live tracking',
     groups: [
       {
         name: 'Compliance',
@@ -205,6 +216,19 @@ export const months = [
         ],
       },
       {
+        name: 'Carrier Mobile App (Flutter) – Live Tracking',
+        mobile: true,
+        items: [
+          'Live location sharing while a load is In Transit, started and stopped automatically by load status.',
+          'Load status updates from the app: picked up, in transit and delivered.',
+          'POD and document photo upload from the app.',
+          'Push notifications for new load assignments and updates.',
+          'Live map of in-transit loads for dispatch and operations in the TMS.',
+          'Location history (route trail) on each load.',
+          'Battery-efficient tracking with offline location queueing.',
+        ],
+      },
+      {
         name: 'DevOps – Production Readiness',
         devops: true,
         items: [
@@ -215,7 +239,7 @@ export const months = [
         ],
       },
     ],
-    milestone: 'All agreed business modules and integrations feature-complete.',
+    milestone: 'All agreed business modules, integrations and the carrier mobile app feature-complete.',
   },
   {
     n: 5,
@@ -236,6 +260,8 @@ export const months = [
           'Security testing.',
           'Performance and concurrent-user testing.',
           'Regression testing.',
+          'Carrier app testing on Android and iOS devices.',
+          'GPS accuracy, background tracking and battery testing.',
         ],
       },
       {
@@ -266,7 +292,7 @@ export const months = [
     title: 'UAT, Fixes & Production Delivery',
     short: 'Go-live',
     objective: 'Validate the application with the client, apply final fixes and deploy to production.',
-    deliverable: 'UAT, refinements and production deployment',
+    deliverable: 'UAT, refinements, production deployment and app store release',
     groups: [
       {
         name: 'Client UAT & Improvements',
@@ -277,6 +303,7 @@ export const months = [
           'Workflow validation with department representatives.',
           'Final integration validation.',
           'Final regression testing.',
+          'Carrier app pilot with selected carriers.',
         ],
       },
       {
@@ -285,6 +312,7 @@ export const months = [
           'Production infrastructure configuration.',
           'Data migration, where included in the approved scope.',
           'Production deployment.',
+          'Carrier app release on Google Play Store and Apple App Store.',
           'User training and documentation.',
           'Final handover and go-live support.',
         ],
@@ -318,6 +346,9 @@ export const stack = [
   { layer: 'Infrastructure as Code', tech: 'Terraform' },
   { layer: 'Monitoring & Logging', tech: 'Amazon CloudWatch' },
   { layer: 'Secrets', tech: 'AWS Secrets Manager' },
+  { layer: 'Mobile App', tech: 'Flutter (Android & iOS)' },
+  { layer: 'Maps & Location', tech: 'Google Maps Platform' },
+  { layer: 'Push Notifications', tech: 'Firebase Cloud Messaging' },
 ]
 
 export const approach = [
@@ -335,6 +366,7 @@ export const assumptions = [
   { title: 'Integration access on day one', text: 'Highway and QuickBooks API access, credentials and documentation will be provided at the beginning of the project.' },
   { title: 'Business inputs during discovery', text: 'Required sample documents, business rules, invoice formats and approval workflows will be provided during discovery.' },
   { title: 'MVP scope only', text: 'The six-month timeline (four months of development and two months of testing and fixes) assumes delivery of the agreed MVP scope and does not include unapproved additional modules.' },
+  { title: 'App store accounts', text: 'The client will provide Google Play and Apple App Store developer accounts for publishing the carrier app.' },
   { title: 'Formal change requests', text: 'Any major change in business requirements or additional functionality will be evaluated through a formal change request.' },
   { title: 'Go-live depends on UAT', text: 'Production rollout will be subject to successful UAT and resolution of critical defects.' },
 ]
@@ -355,6 +387,7 @@ export const pricing = {
   covers: [
     '4 months of development: 6 business modules',
     'Highway and QuickBooks integrations',
+    'Carrier mobile app (Flutter) for Android and iOS with live GPS tracking',
     'Reporting, dashboard and Excel/PDF exports',
     'AWS environment setup and automated deployment pipeline',
     '2 months of testing, defect fixes and client UAT',
@@ -362,4 +395,19 @@ export const pricing = {
     'Final handover and go-live support',
   ],
   note: 'Additional modules or major requirement changes outside the approved scope will be quoted separately through a formal change request.',
+}
+
+export const mobileApp = {
+  name: 'Carrier Mobile App',
+  tech: 'Flutter · Android & iOS',
+  desc: 'Carriers share their live location while a load is in transit, so dispatch and operations always know where every shipment is.',
+  months: [3, 4],
+  features: [
+    'Assigned loads and load details',
+    'Live GPS tracking while In Transit',
+    'Status updates: picked up, in transit, delivered',
+    'POD and document photo upload',
+    'Push notifications for new loads',
+    'Live map and route history in the TMS',
+  ],
 }

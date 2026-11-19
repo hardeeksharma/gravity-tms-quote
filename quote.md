@@ -10,7 +10,7 @@
 
 Design, develop, test and deploy a centralized Transportation Management System to support the client's freight brokerage operations and approximately 100–200 employees.
 
-The system will include Brokerage, Operations, Accounts Receivable, Accounts Payable, Administration and Compliance modules, with integrations for Highway and QuickBooks.
+The system will include Brokerage, Operations, Accounts Receivable, Accounts Payable, Administration and Compliance modules, with integrations for Highway and QuickBooks and a Flutter mobile app that lets carriers share their live location while a load is in transit.
 
 ---
 
@@ -106,6 +106,14 @@ The system will include Brokerage, Operations, Accounts Receivable, Accounts Pay
 - Carrier bill approvals.
 - Payment tracking and remittance records.
 
+### Carrier Mobile App (Flutter) – Foundation
+
+- Flutter app setup for Android and iOS.
+- Carrier login and secure authentication.
+- Assigned loads list and load details.
+- Background GPS location service.
+- Location tracking API and storage in the TMS.
+
 ### DevOps – Monitoring & Security
 
 - Application metrics, dashboards and alarms in Amazon CloudWatch.
@@ -118,7 +126,7 @@ The system will include Brokerage, Operations, Accounts Receivable, Accounts Pay
 
 ---
 
-## Month 4 – Compliance, Integrations & Reporting
+## Month 4 – Compliance, Integrations, Reporting & Carrier App
 
 **Objective:** Complete the compliance workflows, connect external systems and deliver reporting.
 
@@ -147,6 +155,16 @@ The system will include Brokerage, Operations, Accounts Receivable, Accounts Pay
 - Revenue and gross profit reporting.
 - Excel and PDF exports.
 
+### Carrier Mobile App (Flutter) – Live Tracking
+
+- Live location sharing while a load is In Transit, started and stopped automatically by load status.
+- Load status updates from the app: picked up, in transit and delivered.
+- POD and document photo upload from the app.
+- Push notifications for new load assignments and updates.
+- Live map of in-transit loads for dispatch and operations in the TMS.
+- Location history (route trail) on each load.
+- Battery-efficient tracking with offline location queueing.
+
 ### DevOps – Production Readiness
 
 - Deployment of background workers for BullMQ jobs and integrations.
@@ -154,7 +172,7 @@ The system will include Brokerage, Operations, Accounts Receivable, Accounts Pay
 - Production environment provisioning and hardening.
 - Documented rollback procedure for every release.
 
-**Milestone:** All agreed business modules and integrations feature-complete.
+**Milestone:** All agreed business modules, integrations and the carrier mobile app feature-complete.
 
 ---
 
@@ -174,6 +192,8 @@ The system will include Brokerage, Operations, Accounts Receivable, Accounts Pay
 - Security testing.
 - Performance and concurrent-user testing.
 - Regression testing.
+- Carrier app testing on Android and iOS devices.
+- GPS accuracy, background tracking and battery testing.
 
 ### Defect Resolution & Stabilization
 
@@ -205,12 +225,14 @@ The system will include Brokerage, Operations, Accounts Receivable, Accounts Pay
 - Workflow validation with department representatives.
 - Final integration validation.
 - Final regression testing.
+- Carrier app pilot with selected carriers.
 
 ### Production Deployment
 
 - Production infrastructure configuration.
 - Data migration, where included in the approved scope.
 - Production deployment.
+- Carrier app release on Google Play Store and Apple App Store.
 - User training and documentation.
 - Final handover and go-live support.
 
@@ -226,16 +248,31 @@ The system will include Brokerage, Operations, Accounts Receivable, Accounts Pay
 
 ---
 
+## Carrier Mobile App (Flutter)
+
+A mobile app for carriers, built with Flutter for Android and iOS. Carriers share their live location while a load is in transit, so dispatch and operations always know where every shipment is.
+
+- Assigned loads and load details
+- Live GPS tracking while In Transit, started and stopped automatically by load status
+- Status updates: picked up, in transit, delivered
+- POD and document photo upload
+- Push notifications for new loads
+- Live map and route history in the TMS
+
+Built in Months 3–4, tested in Month 5, piloted with carriers and released to the app stores in Month 6.
+
+---
+
 ## Project Timeline Summary
 
 | Phase | Month | Major Deliverable |
 |---|---|---|
 | Development | Month 1 | Technical foundation, users, roles, customers and carriers |
 | Development | Month 2 | Brokerage, OTR, drayage, dispatch and documents |
-| Development | Month 3 | Accounts Receivable and Accounts Payable |
-| Development | Month 4 | Compliance, Highway, QuickBooks and reporting |
+| Development | Month 3 | Accounts Receivable, Accounts Payable and carrier app foundation |
+| Development | Month 4 | Compliance, Highway, QuickBooks, reporting and carrier app live tracking |
 | Testing & Fixes | Month 5 | Full QA cycle, defect resolution and stabilization |
-| Testing & Fixes | Month 6 | UAT, refinements and production deployment |
+| Testing & Fixes | Month 6 | UAT, refinements, production deployment and app store release |
 
 **Total estimated duration: 6 months (4 months development + 2 months testing and fixes).**
 
@@ -257,6 +294,9 @@ The system will include Brokerage, Operations, Accounts Receivable, Accounts Pay
 | Infrastructure as Code | Terraform |
 | Monitoring & Logging | Amazon CloudWatch |
 | Secrets | AWS Secrets Manager |
+| Mobile App | Flutter (Android & iOS) |
+| Maps & Location | Google Maps Platform |
+| Push Notifications | Firebase Cloud Messaging |
 
 ---
 
@@ -279,6 +319,7 @@ Covers the complete scope in this proposal, from kickoff to production go-live:
 
 - 4 months of development: 6 business modules
 - Highway and QuickBooks integrations
+- Carrier mobile app (Flutter) for Android and iOS with live GPS tracking
 - Reporting, dashboard and Excel/PDF exports
 - AWS environment setup and automated deployment pipeline
 - 2 months of testing, defect fixes and client UAT
@@ -296,8 +337,9 @@ Additional modules or major requirement changes outside the approved scope will 
 3. Highway and QuickBooks API access, credentials and documentation will be provided at the beginning of the project.
 4. Required sample documents, business rules, invoice formats and approval workflows will be provided during discovery.
 5. The six-month timeline (four months of development and two months of testing and fixes) assumes delivery of the agreed MVP scope and does not include unapproved additional modules.
-6. Any major change in business requirements or additional functionality will be evaluated through a formal change request.
-7. Production rollout will be subject to successful UAT and resolution of critical defects.
+6. The client will provide Google Play and Apple App Store developer accounts for publishing the carrier app.
+7. Any major change in business requirements or additional functionality will be evaluated through a formal change request.
+8. Production rollout will be subject to successful UAT and resolution of critical defects.
 
 ---
 

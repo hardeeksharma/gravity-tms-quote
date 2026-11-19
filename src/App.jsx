@@ -4,7 +4,7 @@ import ScrollTruck from './ScrollTruck.jsx'
 import Logo from './Logo.jsx'
 import {
   project, stats, modules, integrations, months, stack,
-  approach, assumptions, commitment, phases, pricing,
+  approach, assumptions, commitment, phases, pricing, mobileApp,
 } from './data.js'
 
 const TOTAL = months.length
@@ -220,7 +220,7 @@ function Timeline({ selected, setSelected }) {
                     aria-expanded={isOpen}
                     onClick={() => setOpenGroups((o) => ({ ...o, [g.name]: !o[g.name] }))}
                   >
-                    <span>{g.name}{g.devops && <span className="devops-badge">DevOps · AWS</span>}</span>
+                    <span>{g.name}{g.devops && <span className="devops-badge">DevOps · AWS</span>}{g.mobile && <span className="devops-badge mobile-badge">Mobile · Flutter</span>}</span>
                     <span className="group-count">{g.items.length}</span>
                     <Chevron open={isOpen} />
                   </button>
@@ -274,7 +274,7 @@ function Scope({ onPickMonth }) {
   return (
     <section id="scope" className="section alt">
       <SectionHead eyebrow="Scope" title="What the system covers">
-        Six business modules and two integrations. Select a module to jump to the month it is built.
+        Six business modules, two integrations and a carrier mobile app. Select a card to jump to the month it is built.
       </SectionHead>
 
       <div className="modules">
@@ -305,6 +305,37 @@ function Scope({ onPickMonth }) {
           </div>
         ))}
       </div>
+
+      <button className="mobile-app" onClick={() => onPickMonth(mobileApp.months[0])}>
+        <div className="ma-copy">
+          <span className="int-badge">Mobile app</span>
+          <h4>{mobileApp.name}</h4>
+          <span className="ma-tech">{mobileApp.tech}</span>
+          <p>{mobileApp.desc}</p>
+          <span className="module-link">Built in Months {mobileApp.months.join(' & ')} · view in timeline →</span>
+        </div>
+        <ul className="ma-features">
+          {mobileApp.features.map((f) => <li key={f}><Check />{f}</li>)}
+        </ul>
+        <div className="ma-phone" aria-hidden="true">
+          <div className="ma-screen">
+            <div className="ma-map">
+              <svg viewBox="0 0 120 150">
+                <path d="M10 140 C 30 110, 20 90, 50 80 S 90 50, 100 14" fill="none" stroke="rgba(255,255,255,.18)" strokeWidth="8" strokeLinecap="round" />
+                <path className="ma-route" d="M10 140 C 30 110, 20 90, 50 80 S 90 50, 100 14" fill="none" stroke="#f5a524" strokeWidth="3" strokeLinecap="round" strokeDasharray="4 5" />
+                <circle cx="100" cy="14" r="5" fill="#1fc98a" />
+                <circle className="ma-dot" r="5" fill="#fff" stroke="#f5a524" strokeWidth="3">
+                  <animateMotion dur="5s" repeatCount="indefinite" path="M10 140 C 30 110, 20 90, 50 80 S 90 50, 100 14" />
+                </circle>
+              </svg>
+            </div>
+            <div className="ma-card">
+              <strong>Load #TMS-1042</strong>
+              <span><i />In transit · sharing location</span>
+            </div>
+          </div>
+        </div>
+      </button>
     </section>
   )
 }
