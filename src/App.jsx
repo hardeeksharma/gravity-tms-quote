@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import Intro from './Intro.jsx'
 import {
   project, stats, modules, integrations, months, stack,
   approach, assumptions, commitment, phases, pricing,
@@ -445,6 +446,7 @@ export default function App() {
 
   return (
     <>
+      <Intro />
       <Nav />
       <main>
         <Hero />

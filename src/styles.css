@@ -382,3 +382,74 @@ a { color: inherit; }
   .chev { display: none; }
   body { font-size: 13px; }
 }
+
+/* ---------- intro animation ---------- */
+.intro {
+  position: fixed; inset: 0; z-index: 1000; display: grid; place-items: center; padding: 24px;
+  background:
+    radial-gradient(900px 500px at 80% -10%, rgba(245,165,36,.16), transparent 60%),
+    radial-gradient(700px 400px at -10% 110%, rgba(64,140,220,.18), transparent 60%),
+    var(--navy-950);
+  color: #fff; transition: opacity .5s ease, transform .5s ease;
+}
+.intro.leaving { opacity: 0; transform: scale(1.03); pointer-events: none; }
+.intro-inner { width: min(760px, 100%); display: flex; flex-direction: column; align-items: center; gap: 44px; }
+.intro-brand { font-family: var(--display); font-size: clamp(18px, 3vw, 24px); font-weight: 600; letter-spacing: .02em; color: rgba(255,255,255,.9); animation: introFade .6s ease both; }
+
+.route { width: 100%; display: flex; align-items: center; gap: 18px; animation: introFade .6s .1s ease both; }
+.stop { display: flex; flex-direction: column; align-items: center; gap: 8px; flex: none; width: 64px; }
+.pin {
+  width: 22px; height: 22px; border-radius: 50%; display: grid; place-items: center;
+  background: var(--amber); box-shadow: 0 0 0 6px rgba(245,165,36,.2); color: var(--navy-950);
+}
+.pin svg { width: 14px; height: 14px; opacity: 0; transform: scale(.4); transition: all .3s ease; }
+.stop.dest .pin { background: rgba(255,255,255,.18); box-shadow: 0 0 0 6px rgba(255,255,255,.08); transition: background .3s, box-shadow .3s; }
+.stop.dest.arrived .pin { background: #1fc98a; box-shadow: 0 0 0 8px rgba(31,201,138,.25); animation: pinPop .5s ease; }
+.stop.dest.arrived .pin svg { opacity: 1; transform: none; color: #04261a; }
+.stop-label { font-size: 12px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: rgba(255,255,255,.6); }
+
+.road { position: relative; flex: 1; height: 72px; min-width: 0; }
+.road-line {
+  position: absolute; left: 0; right: 0; bottom: 6px; height: 4px; border-radius: 2px;
+  background: repeating-linear-gradient(90deg, rgba(255,255,255,.28) 0 14px, transparent 14px 26px);
+  animation: roadScroll .5s linear infinite;
+}
+.road-progress {
+  position: absolute; left: 0; bottom: 6px; height: 4px; border-radius: 2px; background: var(--amber);
+  width: 0; animation: progress 2.4s .5s cubic-bezier(.45, .05, .35, 1) forwards;
+}
+.truck {
+  position: absolute; bottom: 8px; left: 0; width: 96px; transform: translateX(-30%);
+  animation: drive 2.4s .5s cubic-bezier(.45, .05, .35, 1) forwards, bounce .45s ease-in-out infinite alternate;
+}
+.truck svg { width: 100%; display: block; overflow: visible; }
+.wheel { transform-box: fill-box; transform-origin: center; animation: spin .5s linear infinite; }
+
+.intro-status { display: flex; align-items: center; gap: 14px; height: 24px; }
+.status-dots { display: flex; gap: 6px; }
+.status-dots i { width: 8px; height: 8px; border-radius: 50%; background: rgba(255,255,255,.2); transition: background .3s, transform .3s; }
+.status-dots i.on { background: var(--amber); transform: scale(1.15); }
+.status-text { font-size: 15px; font-weight: 500; color: rgba(255,255,255,.85); animation: introFade .35s ease both; }
+.intro-skip {
+  position: fixed; right: 20px; bottom: 20px; background: transparent; color: rgba(255,255,255,.6);
+  border: 1px solid rgba(255,255,255,.2); border-radius: 999px; padding: 8px 16px; font-size: 13px; cursor: pointer;
+  transition: color .15s, border-color .15s;
+}
+.intro-skip:hover { color: #fff; border-color: rgba(255,255,255,.5); }
+
+@keyframes introFade { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+@keyframes drive { from { left: 0; } to { left: calc(100% - 96px * .7); } }
+@keyframes progress { from { width: 0; } to { width: 100%; } }
+@keyframes spin { to { transform: rotate(360deg); } }
+@keyframes roadScroll { to { background-position: -26px 0; } }
+@keyframes bounce { from { margin-bottom: 0; } to { margin-bottom: 2px; } }
+@keyframes pinPop { 0% { transform: scale(1); } 50% { transform: scale(1.35); } 100% { transform: scale(1); } }
+
+@media (max-width: 640px) {
+  .stop { width: 52px; }
+  .route { gap: 8px; }
+  .truck { width: 76px; }
+  @keyframes drive { from { left: 0; } to { left: calc(100% - 76px * .7); } }
+}
+@media (prefers-reduced-motion: reduce) { .intro { display: none; } }
+@media print { .intro { display: none !important; } }
