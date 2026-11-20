@@ -25,7 +25,7 @@ The system will include Brokerage, Operations, Accounts Receivable, Accounts Pay
 - Finalize Product Requirements Document (PRD) and Technical Requirements Document (TRD).
 - Finalize database architecture and application structure.
 - Set up React, Vite, TypeScript and Ant Design frontend.
-- Set up Node.js, Express.js and TypeScript backend.
+- Set up Node.js, NestJS and TypeScript backend.
 - Configure PostgreSQL and Prisma ORM.
 - Implement authentication and secure login.
 - Develop role-based access control (RBAC).
@@ -284,7 +284,7 @@ Built in Months 3–4, tested in Month 5, piloted with carriers and released to 
 |---|---|
 | Frontend | React.js, Vite, TypeScript |
 | UI Framework | Ant Design |
-| Backend | Node.js, Express.js, TypeScript |
+| Backend | Node.js, NestJS, TypeScript |
 | Database | PostgreSQL |
 | ORM | Prisma |
 | Cache & Background Processing | Redis and BullMQ |

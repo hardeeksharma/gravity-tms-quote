@@ -51,7 +51,7 @@ export const months = [
           'Finalize Product Requirements Document (PRD) and Technical Requirements Document (TRD).',
           'Finalize database architecture and application structure.',
           'Set up React, Vite, TypeScript and Ant Design frontend.',
-          'Set up Node.js, Express.js and TypeScript backend.',
+          'Set up Node.js, NestJS and TypeScript backend.',
           'Configure PostgreSQL and Prisma ORM.',
           'Implement authentication and secure login.',
           'Develop role-based access control (RBAC).',
@@ -336,7 +336,7 @@ export const months = [
 export const stack = [
   { layer: 'Frontend', tech: 'React.js, Vite, TypeScript' },
   { layer: 'UI Framework', tech: 'Ant Design' },
-  { layer: 'Backend', tech: 'Node.js, Express.js, TypeScript' },
+  { layer: 'Backend', tech: 'Node.js, NestJS, TypeScript' },
   { layer: 'Database', tech: 'PostgreSQL' },
   { layer: 'ORM', tech: 'Prisma' },
   { layer: 'Cache & Background Processing', tech: 'Redis and BullMQ' },
